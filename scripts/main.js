@@ -1,4 +1,4 @@
-// Un beau tableau d'objets
+// Un beau tableau d'objets représentant les actions des joueurs
 const actions = [
   { joueur: "Léa", points: 10 },
   { joueur: "Tom", points: 5 },
@@ -7,17 +7,18 @@ const actions = [
   { joueur: "Tom", points: 3 },
 ];
 
-// Un objet vide
+// Un objet vide qui contiendra les scores cumulés par joueur
 const scores = {};
 
-// On boucle sur le tableau
+// On parcourt chaque action
 actions.forEach((action) => {
-  const nom = action.joueur;    // On isole le nom d'un joueur dans une variable
+  const nom = action.joueur;    // On extrait le nom du joueur
 
-  if (!scores[nom]) {           // On vérifie si le nom est déjà présent sous forme de clé dans l'objet scores
-    scores[nom] = 0;            // On attribue une valeur de 0 pour initiliser la clé du joueur à la valeur 0 s'il n'existait pas
+  if (!scores[nom]) {           // Si ce joueur n’a pas encore de score dans l’objet...
+    scores[nom] = 0;            // ...on initialise sa clé avec une valeur de 0
   }
-  scores[nom] += action.points; // On ajoute les points du joueur à ses points actuels
-})
+
+  scores[nom] += action.points; // On ajoute les points de cette action à son total
+});
 
 console.log(scores);
